@@ -42,8 +42,8 @@ That's why you will use [Prettier](https://prettier.io) to format your code, and
 
 - Framer-motion
 - React Routing system
-- Styled components
 - Uuid
+- Styled components
 
 ## Optional
 
