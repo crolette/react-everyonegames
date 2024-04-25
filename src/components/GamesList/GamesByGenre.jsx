@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Card from './Card/Card';
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-export default function GamesList() {
+export default function GamesByGenre() {
+
+	const { genreId, genreSlug } = useParams();
 	const [games, setGames] = useState();
 	const [pageNumber, setpageNumber] = useState(1);
 
@@ -12,10 +15,10 @@ export default function GamesList() {
 		const fetchData = async () => {
 			try {
 				const response = await fetch(
-					`https://api.rawg.io/api/games?key=${API_KEY}&dates=2024-04-01,2024-04-24&ordering=-rating`
+					`https://api.rawg.io/api/games?key=${API_KEY}&genres=${genreId}&ordering=-rating`
 				);
 				const datas = await response.json();
-				console.log(datas)
+				console.log(datas);
 				setGames(datas.results);
 				// setNextPage(datas)
 			} catch (error) {
@@ -40,7 +43,7 @@ export default function GamesList() {
 	return (
 		<>
 			<div className="games">
-				<h1>New & Trending</h1>
+				<h1>{genreId}</h1>
 				<ul className="games__list">
 					{games.map((game) => (
 						<li key={game.id}>

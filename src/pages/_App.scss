@@ -1,7 +1,6 @@
 .container.news {
-	display: grid;
 	grid-template-areas:
 		'navbar search search'
 		'navbar sort filters'
-		'. main main';
+		'navbar main main';
 }

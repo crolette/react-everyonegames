@@ -1,54 +1,98 @@
 import { useState } from 'react';
 import platformPC from '../../../assets/images/platform_pc.svg';
 
-export default function Card() {
-	// async function gamesByRelease() {
-	// 	const reponse = await fetch(
-	// 		`https://api.rawg.io/api/platforms/lists/parents/?key=${API_KEY}`
-	// 	);
-	// 	const films = await reponse.json();
-	// 	console.log(films);
-	// }
+import {
+	FaWindows,
+	FaPlaystation,
+	FaApple,
+	FaAndroid,
+	FaLinux,
+	FaXbox,
+} from 'react-icons/fa';
+
+import {
+	SiNintendo,
+	SiSega,
+	SiAtari,
+	SiCommodore,
+	SiIos,
+} from 'react-icons/si';
+
+export default function Card({ game }) {
+	const [suggestionCount, setSuggestionCount] = useState(
+		game.suggestions_count
+	);
+
+	const handleClickSuggestion = (e) => {
+		setSuggestionCount(suggestionCount + 1);
+	};
+
+	const handlePlatformLogo = (platformName) => {
+		return platformName == 'PC' ? (
+			<FaWindows />
+		) : platformName == 'PlayStation' ? (
+			<FaPlaystation />
+		) : platformName == 'Xbox' ? (
+			<FaXbox />
+		) : platformName == 'Linux' ? (
+			<FaLinux />
+		) : platformName == 'Nintendo' ? (
+			<SiNintendo />
+		) : platformName == 'Atari' ? (
+			<SiAtari />
+		) : platformName == 'Sega' ? (
+			<SiSega />
+		) : platformName == 'iOS' ? (
+			<SiIos />
+		) : platformName == 'Commodore' ? (
+			<SiCommodore />
+		) : platformName == 'Apple' ? (
+			<FaApple />
+		) : platformName == 'Android' ? (
+			<FaAndroid />
+		) : null;
+	};
 
 	return (
 		<>
 			<div className="card">
 				<div className="card__top">
-					<img
-						className="card__image"
-						src="https://media.rawg.io/media/games/9f1/9f1891779cb20f44de93cef33b067e50.jpg"
-						alt=""
-					/>
-					<div className="card__platforms">
-						<span className="material-symbols-outlined">sports_esports</span>
-						<span className="material-symbols-outlined">sports_esports</span>
-						<span className="material-symbols-outlined">sports_esports</span>
+					<a href={`/game/${game.id}`}>
+						<img
+							className="card__image"
+							src={game.background_image}
+							alt={`Screenshot ${game.name}`}
+						/>
+					</a>
+					<div className="card__platforms" >
+						{game.parent_platforms.map((platform) =>
+							handlePlatformLogo(platform.platform.name)
+						)}
 					</div>
 				</div>
 				<div className="card__bottom">
 					<div className="card__title">
-						<a href="">
-							<h2>Grand Theft Auto 5</h2>
+						<a href={`/game/${game.id}`}>
+							<h2>{game.name}</h2>
 						</a>
-						<button className="card__suggestions">
-							<span>250</span>
+						<button
+							className="card__suggestions"
+							onClick={handleClickSuggestion}
+						>
+							<span>{suggestionCount}</span>
 							<span className="material-symbols-outlined">add_circle</span>
 						</button>
 					</div>
 					<div className="card__details">
 						<div className="card__tags">
-							<a href="" className="card__tag">
-								Genre 1
-							</a>
-							<a href="" className="card__tag">
-								Genre 2
-							</a>
-							<a href="" className="card__tag">
-								Genre 3
-							</a>
+							{game.genres.map((genre) => (
+								<a href={`/games/${genre.id}/${genre.slug}`} className="card__tag">
+									{genre.name}
+								</a>
+							))}
 						</div>
 						<div className="card__rating">
-							<p>8,57</p>
+							<p>{game.rating}</p>
 						</div>
 					</div>
 				</div>
