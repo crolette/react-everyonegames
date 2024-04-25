@@ -1,4 +1,13 @@
+@import './Card/Card';
+
 .games {
     grid-area: main;
-    background-color: rgb(255, 176, 5);
+    
+    .games__list {
+        display: flex;
+        flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px;
+    }
+
 }
