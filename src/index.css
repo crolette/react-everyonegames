@@ -1,4 +1,5 @@
 /* RESET CSS */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -58,115 +59,150 @@ table {
 }
 
 /* END RESET CSS */
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em rgba(100, 108, 255, 0.6666666667));
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em rgba(97, 218, 251, 0.6666666667));
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
 body {
-  margin: 0;
+  background: var(--bg-body);
+  margin: 0 auto;
   display: flex;
-  place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+}
+
+:root {
+  font-family: "Nunito", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Raleway", sans-serif;
+  color: var(--headings-color);
+  font-weight: bold;
+}
+
+p {
+  color: var(--font-color);
+  font-size: 14px;
+  line-height: 1.04;
+}
+
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 32px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 1.04;
+}
+
+h1,
+h2 {
+  line-height: 1.08;
+}
+
+a.card__tag {
+  color: var(--tag);
+}
+a.card__tag:hover {
+  color: var(--tag-hover);
+}
+
+.dark {
+  --bg-body: #10141f;
+  --bg-navbar: #161d2f;
+  --headings-color: #d4d4d4;
+  --font-color: #fafafa;
+  --tag: #646cff;
+  --tag-hover: #8c91f2;
+}
+
+.light {
+  --bg-body: #f1f1f1;
+  --bg-navbar: #dbdbdb;
+  --headings-color: #10141f;
+  --font-color: #161d2f;
+  --tag: #6146af;
+  --tag-hover: #46386f;
+}
+
+.container.news {
+  display: grid;
+  grid-template-areas: "navbar search search" "navbar sort filters" "navbar main main";
+}
+
+.container.game {
+  grid-template-areas: "navbar game" "navbar game" ". game";
+}
+
+.games {
+  grid-area: main;
+  background-color: rgb(255, 176, 5);
+}
+
+.filters {
+  grid-area: filters;
+  background-color: blue;
+}
+
+.game {
+  grid-area: game;
+  background-color: red;
+}
+
+.navbar__icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5vh;
+  margin-top: 3vh;
+}
+.navbar--dark {
+  background-color: #161d2f;
+  color: rgb(255, 255, 255);
+}
+.navbar--light {
+  background-color: white;
+  color: #161d2f;
+}
+.navbar {
+  grid-area: navbar;
+  width: 11.5107913669vh;
+  height: 80vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  position: fixed;
+  left: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 3vh;
+}
+.navbar button {
+  background-color: transparent;
+  border: none;
   cursor: pointer;
-  transition: border-color 0.25s;
+  color: inherit;
+  font-size: 2.5vh;
+  transition: 0.3s;
 }
 
-button:hover {
-  border-color: #646cff;
+.search {
+  grid-area: search;
+  background-color: yellow;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.sort {
+  grid-area: sort;
+  background-color: greenyellow;
 }/*# sourceMappingURL=index.css.map */
