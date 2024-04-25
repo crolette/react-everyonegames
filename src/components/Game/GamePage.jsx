@@ -7,6 +7,7 @@ export default function GamePage() {
 
 	return (
 		<>
+			
 			<p>GamePage</p>
 			<p>GameID : {gameId}</p>
 		</>

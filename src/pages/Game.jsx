@@ -6,8 +6,10 @@ import GamePage from '../components/Game/GamePage';
 function Game() {
 	return (
 		<>
+			<div className="container game">
 			<Navbar />
 			<GamePage />
+			</div>
 		</>
 	);
 }

@@ -3,7 +3,9 @@ import { useState } from 'react';
 export default function Sorting() {
 	return (
 		<>
-			<p>Sorting</p>
+			<div className="sort">
+				<p>Sorting</p>
+			</div>
 		</>
 	);
 }

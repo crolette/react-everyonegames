@@ -2,9 +2,11 @@
 @import './styles/global';
 @import './styles/typography';
 @import './styles/theme';
+@import './pages/App';
+@import './pages/Game';
 @import './components/GamesList/GamesList';
 @import './components/Filters/Filters';
-@import './components/Game/Game';
+@import './components/Game/GamePage';
 @import './components/Navbar/Navbar';
 @import './components/Search/Search';
 @import './components/Sorting/Sorting';

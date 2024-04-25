@@ -1,0 +1,6 @@
+.container.game {
+	grid-template-areas:
+		'navbar game'
+		'navbar game'
+		'. game';
+}
