@@ -4,12 +4,12 @@
 
 - BEM
 - Commit: Angular convention
-  - 'feat: message' : add/remove feature
-  - 'style: message' : styling
-  - 'fix: message' : fix a bug
-  - 'refactor: message' : refactor the code WITHOUT modifying any behaviour
-  - 'docs: message' : affect documentation of the project
-  - 'perf: message' : improve performance
+  - 'feat: <em>message</em>' : add/remove feature
+  - 'style: <em>message</em>' : styling
+  - 'fix: <em>message</em>' : fix a bug
+  - 'refactor: <em>message</em>' : refactor the code WITHOUT modifying any behaviour
+  - 'docs: <em>message</em>' : affect documentation of the project
+  - 'perf: <em>message</em>' : improve performance
 
 ## Tools
 
