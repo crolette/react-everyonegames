@@ -1,17 +1,15 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
-import Filters from '../components/Filters/Filters';
+import GamePage from '../components/Game/GamePage';
 
-function App() {
+function Game() {
 	return (
 		<>
 			<Navbar />
-			<Filters />
-			<Search />
-			<Outlet />
+			<GamePage />
 		</>
 	);
 }
 
-export default App;
+export default Game;
