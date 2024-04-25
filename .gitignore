@@ -25,3 +25,6 @@ design
 *.sln
 *.sw?
 .env
+
+index.css
+index.css.map
