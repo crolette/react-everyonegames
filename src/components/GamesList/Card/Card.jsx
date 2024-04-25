@@ -1,14 +1,8 @@
 import { useState } from 'react';
 import platformPC from '../../../assets/images/platform_pc.svg';
 
-export default function Card() {
-	// async function gamesByRelease() {
-	// 	const reponse = await fetch(
-	// 		`https://api.rawg.io/api/platforms/lists/parents/?key=${API_KEY}`
-	// 	);
-	// 	const films = await reponse.json();
-	// 	console.log(films);
-	// }
+export default function Card({ game }) {
+
 
 	return (
 		<>
@@ -28,27 +22,23 @@ export default function Card() {
 				<div className="card__bottom">
 					<div className="card__title">
 						<a href="">
-							<h2>Grand Theft Auto 5</h2>
+							<h2>{game.name}</h2>
 						</a>
 						<button className="card__suggestions">
-							<span>250</span>
+							<span>{game.suggestions_count}</span>
 							<span className="material-symbols-outlined">add_circle</span>
 						</button>
 					</div>
 					<div className="card__details">
 						<div className="card__tags">
-							<a href="" className="card__tag">
-								Genre 1
-							</a>
-							<a href="" className="card__tag">
-								Genre 2
-							</a>
-							<a href="" className="card__tag">
-								Genre 3
-							</a>
+							{game.genres.map((genre) => (
+								<a href="" className="card__tag">
+									{genre}
+								</a>
+							))}
 						</div>
 						<div className="card__rating">
-							<p>8,57</p>
+							<p>{game.rating}</p>
 						</div>
 					</div>
 				</div>
