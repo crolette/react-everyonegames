@@ -8,7 +8,7 @@
   - 'style: *message*' : styling
   - 'fix: *message*' : fix a bug
   - 'refactor: *message*' : refactor the code WITHOUT modifying any behaviour
-  - 'docs: *message*>' : affect documentation of the project
+  - 'docs: *message*' : affect documentation of the project
   - 'perf: *message*' : improve performance
 
 ## Tools
@@ -37,6 +37,7 @@
   - new-release: New releases (release date: day 0 to day-7)
   - next-week: Next week (release date: day+1 to day+7)
   - best-of: Best of (sorted by best ratings)
+  
 - Game page
   - game/:id : Display all information related to a game
 
@@ -49,6 +50,7 @@
   - Filters
   - Cards
     - Card: displays basic game information
+  
 - Game page
   - Navbar
   - Page layout
@@ -66,5 +68,4 @@ All the properties needed from the API, exact names and types
 -
 
 ## API Calls
-
--
+- 
