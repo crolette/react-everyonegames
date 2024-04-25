@@ -1,4 +1,40 @@
 .navbar {
+  &__icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    margin-top: 3vh;
+  }
+  &--dark {
+    background-color: #161d2f;
+    color: rgb(255, 255, 255);
+  }
+
+  &--light {
+    background-color: white;
+    color: #161d2f;
+  }
+
+  & {
     grid-area: navbar;
-    background-color: red;
+    width: 11.510791366906474vh;
+    height: 80vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    position: fixed;
+    left: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 3vh;
+  }
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-size: 2.5vh;
+    transition: 0.3s;
+  }
 }
