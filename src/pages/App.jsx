@@ -19,7 +19,7 @@ const [sort, setSort] = useState('')
 				<Sorting handleSort={handleSort} />
 				<Filters />
 				<Search />
-				<Outlet sort={sort} />
+				<Outlet context={[sort]} />
 			</div>
 		</>
 	);
