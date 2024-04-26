@@ -17,6 +17,7 @@
 
         & button {
             cursor: pointer;
+			 background-color: var(--bg-buttons);
 
 			> * {
 				pointer-events: none;

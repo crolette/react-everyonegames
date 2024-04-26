@@ -6,9 +6,10 @@ import Sorting from '../components/Sorting/Sorting';
 import Filters from '../components/Filters/Filters';
 
 export default function App() {
+const [sort, setSort] = useState('')
+
 	const handleSort = (e) => {
-		console.log('handleFilter');
-		console.log(e.target.value);
+		setSort(e.target.value)
 	};
 
 	return (
@@ -18,7 +19,7 @@ export default function App() {
 				<Sorting handleSort={handleSort} />
 				<Filters />
 				<Search />
-				<Outlet />
+				<Outlet sort={sort} />
 			</div>
 		</>
 	);
