@@ -5,12 +5,17 @@ import Search from '../components/Search/Search';
 import Sorting from '../components/Sorting/Sorting';
 import Filters from '../components/Filters/Filters';
 
-function App() {
+export default function App() {
+	const handleSort = (e) => {
+		console.log('handleFilter');
+		console.log(e.target.value);
+	};
+
 	return (
 		<>
 			<div className="container news">
 				<Navbar />
-				<Sorting />
+				<Sorting handleSort={handleSort} />
 				<Filters />
 				<Search />
 				<Outlet />
@@ -18,5 +23,3 @@ function App() {
 		</>
 	);
 }
-
-export default App;

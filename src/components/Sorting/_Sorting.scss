@@ -1,11 +1,26 @@
 .sort {
-    grid-area: sort;
-    display: flex;
-    gap: 16px;
+	grid-area: sort;
+	display: flex;
+    align-items: center;
+	gap: 16px;
 
-    & .sort__type {
-        display: flex;
-        gap: 16px;
-        border-radius: 8px;
-    }
+	& .sort__type {
+		display: flex;
+        align-items: center;
+		gap: 16px;
+		border-radius: 16px;
+		padding: 4px;
+		color: var(--font-color);
+        background-color: var(--bg-buttons);
+        
+
+
+        & button {
+            cursor: pointer;
+
+			> * {
+				pointer-events: none;
+			}
+        }
+	}
 }
