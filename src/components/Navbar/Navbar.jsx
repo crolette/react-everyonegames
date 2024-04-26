@@ -1,38 +1,54 @@
 import { useState } from "react";
-import {
-  FaHome,
-  FaChartLine,
-  FaStar,
-  FaLightbulb,
-  FaMoon,
-} from "react-icons/fa";
+import { FaHome, FaStar, FaLightbulb, FaMoon } from "react-icons/fa";
+import { MdFiberNew } from "react-icons/md";
+import { IoIosHourglass } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
+    const bodyElement = document.querySelector("body");
+    bodyElement.classList.toggle("light");
   };
 
   return (
     <>
-      <div className={`navbar ${darkMode ? "navbar--dark" : "navbar--light"}`}>
+      <div className="navbar">
         <nav className="navbar__icons">
           <ul>
             <li>
-              <a href="">
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 <FaHome />
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="">
-                <FaChartLine />
-              </a>
-            </li>
-            <li>
-              <a href="">
+              <NavLink
+                to="/best-of"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 <FaStar />
-              </a>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/new-releases"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                <MdFiberNew />
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/next-releases'"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                <IoIosHourglass />
+              </NavLink>
             </li>
           </ul>
         </nav>
@@ -43,3 +59,5 @@ export default function Navbar() {
     </>
   );
 }
+
+// new release/next release
