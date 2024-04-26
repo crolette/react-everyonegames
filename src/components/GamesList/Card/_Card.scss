@@ -1,7 +1,6 @@
 .card {
     width: 300px;
     min-height: 300px;
-    background: #10141F;
     border-radius: 8px;
     box-shadow: 0 0 10px 2px hsla(237,80%,75%,0.25);
     overflow: hidden;
@@ -64,7 +63,7 @@
                 justify-content: space-between;
                 align-items: center;
                 gap: 8px;
-                background-color: #2F3B59;
+                background-color: var(--bg-buttons);
                 padding: 4px 4px 4px 16px;
                 border-radius: 16px;
                 font-weight: bold;

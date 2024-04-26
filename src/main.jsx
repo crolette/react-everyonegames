@@ -13,8 +13,6 @@ import GamePage from "./components/Game/GamePage";
 import GamesByGenre from "./components/GamesList/GamesByGenre.jsx";
 import SearchPage from "./components/Search/SearchPage.jsx";
 
-console.log(import.meta.env.VITE_API_KEY);
-
 const router = createBrowserRouter([
   {
     path: "/",
