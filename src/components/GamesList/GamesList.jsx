@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Card from './Card/Card';
 const API_KEY = import.meta.env.VITE_API_KEY;
 
+
 export default function GamesList() {
 	const [games, setGames] = useState();
 	const [pageNumber, setpageNumber] = useState(1);
@@ -15,10 +16,12 @@ export default function GamesList() {
 			try {
 				const response = await fetch(
 					`https://api.rawg.io/api/games?key=${API_KEY}&dates=2024-04-01,2024-04-24&ordering=-rating`
+					
 				);
 				const datas = await response.json();
 				console.log(datas)
 				setGames(datas.results);
+				// setGames(datas);
 				// setNextPage(datas)
 			} catch (error) {
 				console.error('Error fetching data:', error);
