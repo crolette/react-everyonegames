@@ -1,4 +1,11 @@
 .sort {
     grid-area: sort;
-    background-color: greenyellow;
+    display: flex;
+    gap: 16px;
+
+    & .sort__type {
+        display: flex;
+        gap: 16px;
+        border-radius: 8px;
+    }
 }
