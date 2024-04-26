@@ -32,24 +32,57 @@ export default function GamesByGenre() {
 		fetchData();
 	}, [sort]);
 
-	useEffect(() => {
-		window.addEventListener('scroll', () => {
-			console.log(window.scrollY);
-			let scrollY = window.scrollY;
-			let bodyHeight = document.body.offsetHeight;
-			console.log(document.body.offsetHeight);
-			if (scrollY == bodyHeight - 200) {
-				console.log('infinite');
-			}
-		});
+	// useEffect(() => {
+	// 	window.addEventListener('scroll', () => {
+	// 		const fullHeight = Math.max(
+	// 			document.body.scrollHeight,
+	// 			document.documentElement.scrollHeight,
+	// 			document.body.offsetHeight,
+	// 			document.documentElement.offsetHeight,
+	// 			document.body.clientHeight,
+	// 			document.documentElement.clientHeight
+	// 		);
 
-		// return () => {
-		// 	window.removeEventListener('scroll', () )
-		// }
-	}, []);
+	// 		const lowestHeight = Math.min(
+	// 			document.body.scrollHeight,
+	// 			document.documentElement.scrollHeight,
+	// 			document.body.offsetHeight,
+	// 			document.documentElement.offsetHeight,
+	// 			document.body.clientHeight,
+	// 			document.documentElement.clientHeight
+	// 		);
+
+	// 		let scrollY = window.scrollY;
+	// 		let infinite = fullHeight - lowestHeight - 200;
+
+	// 		// console.log(
+	// 		// 	'fullheight: ' +
+	// 		// 		fullHeight +
+	// 		// 		' / lowestheight : ' +
+	// 		// 		lowestHeight +
+	// 		// 		' scrollY : ' +
+	// 		// 		scrollY +
+	// 		// 		' / infinte : ' +
+	// 		// 		infinite
+	// 		// );
+	// 		// if (scrollY >= infinite) {
+	// 		// 	// console.log('infinite');
+	// 		// 	// refetchNewGames();
+	// 		// }
+	// 	});
+
+	// 	// 	// return () => {
+	// 	// 	// 	window.removeEventListener('scroll', () )
+	// 	// 	// }
+	// }, []);
 
 	if (isLoading) {
-		return <div>Loading...</div>;
+		console.log(isLoading);
+		return (
+			<div>
+				<h1>Loading...</h1>
+			</div>
+		);
 	}
 
 	function handleNextPage(games) {
