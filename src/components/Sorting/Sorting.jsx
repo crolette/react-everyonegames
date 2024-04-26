@@ -1,41 +1,27 @@
-import { useState } from 'react';
-import { FaRegArrowAltCircleUp, FaRegArrowAltCircleDown } from 'react-icons/fa';
+import SortingButton from './SortingButton';
 
 export default function Sorting({ handleSort }) {
-
-// TODO create component for sort button
 
 	return (
 		<>
 			<div className="sort">
 				<h3>Sort by</h3>
-				<div className="sort__type">
-					<button type="button" onClick={handleSort} value="released">
-						<FaRegArrowAltCircleUp />
-					</button>
-					<p>Release date</p>
-					<button type="button" onClick={handleSort} value="-released">
-						<FaRegArrowAltCircleDown />
-					</button>
-				</div>
-				<div className="sort__type">
-					<button type="button" onClick={handleSort} value="added">
-						<FaRegArrowAltCircleUp />
-					</button>
-					<p>Date added</p>
-					<button type="button" onClick={handleSort} value="-added">
-						<FaRegArrowAltCircleDown />
-					</button>
-				</div>
-				<div className="sort__type">
-					<button type="button" onClick={handleSort} value="name">
-						<FaRegArrowAltCircleUp />
-					</button>
-					<p>Name</p>
-					<button type="button" onClick={handleSort} value="-name">
-						<FaRegArrowAltCircleDown />
-					</button>
-				</div>
+				<SortingButton
+					handleSort={handleSort}
+					value={'released'}
+					title={'Release date'}
+				/>
+				<SortingButton
+					handleSort={handleSort}
+					value={'added'}
+					title={'Date added'}
+				/>
+				<SortingButton handleSort={handleSort} value={'name'} title={'Name'} />
+				<SortingButton
+					handleSort={handleSort}
+					value={'rating'}
+					title={'Rating'}
+				/>
 			</div>
 		</>
 	);
