@@ -13,31 +13,31 @@ export default function GamesList({handleFilter}) {
 
 let url = `https://api.rawg.io/api/games?key=${API_KEY}&dates=2024-04-01,2024-04-24&ordering=${sort}&${filter.type}=${filter.id}`;
 
-	// useEffect(() => {
-	// 	console.log(url)
-	// 	const fetchData = async () => {
-	// 		try {
-	// 			const response = await fetch(
-	// 				url
+	useEffect(() => {
+		console.log(url)
+		const fetchData = async () => {
+			try {
+				const response = await fetch(
+					url
 					
-	// 			);
-	// 			const datas = await response.json();
-	// 			console.log(datas)
-	// 			// setNextPage(datas.next)
-	// 			setGames(datas.results);
-	// 			// setGames(datas);
-	// 		} catch (error) {
-	// 			console.error('Error fetching data:', error);
-	// 		} finally {
-	// 			setIsLoading(false);
-	// 		}
-	// 	};
+				);
+				const datas = await response.json();
+				console.log(datas)
+				// setNextPage(datas.next)
+				setGames(datas.results);
+				// setGames(datas);
+			} catch (error) {
+				console.error('Error fetching data:', error);
+			} finally {
+				setIsLoading(false);
+			}
+		};
 
-	// 	fetchData();
-	// }, [sort, filter]);
+		fetchData();
+	}, [sort, filter]);
 
 	if (isLoading) {
-		return <div>Loading...</div>;
+		return <h1>Loading...</h1>;
 	}
 
 	const handleNextPage = (games) => {
