@@ -38,6 +38,10 @@
             background-color: hsla(224,32%,9%,0.75);
 
             color: var(--font-color);
+
+            svg {
+                pointer-events: none;
+            }
         }
     }
 

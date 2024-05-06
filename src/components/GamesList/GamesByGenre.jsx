@@ -5,20 +5,23 @@ import Card from './Card/Card';
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 export default function GamesByGenre() {
-	const { genreId, genreSlug } = useParams();
+	const { filterId, slug, type } = useParams();
 	const [games, setGames] = useState();
 	const [pageNumber, setpageNumber] = useState(1);
-	const [sort] = useOutletContext();
+	const [sort, filter, gameList, list] = useOutletContext();
 
 	const [isLoading, setIsLoading] = useState(true);
 
+	console.log(filter);
+	const url = `https://api.rawg.io/api/games?key=${API_KEY}&${type}=${filterId}&ordering=${sort}&${filter.type}=${filter.id}`;
+
 	useEffect(() => {
+		console.log('gamelist');
+		console.log(gameList);
+		console.log(filter);
 		const fetchData = async () => {
 			try {
-				const response = await fetch(
-					// `https://api.rawg.io/api/games?key=${API_KEY}&genres=${genreId}&ordering=${sort}&page=${pageNumber}`
-					`https://api.rawg.io/api/games?key=${API_KEY}&search=''`
-				);
+				const response = await fetch(url);
 				const datas = await response.json();
 				console.log(datas);
 				setGames(datas.results);
@@ -31,12 +34,9 @@ export default function GamesByGenre() {
 		};
 
 		fetchData();
-	}, [sort]);
-
-	
+	}, [filter, sort]);
 
 	if (isLoading) {
-		console.log(isLoading);
 		return (
 			<div>
 				<h1>Loading...</h1>
@@ -51,9 +51,11 @@ export default function GamesByGenre() {
 
 	return (
 		<>
-			<div className="games">
-				<h1>{genreSlug}</h1>
-				<ul className="games__list">
+			<div className='games'>
+				<h1>
+					{slug} {filter.name ? ' - ' + filter.name : ''}
+				</h1>
+				<ul className='games__list'>
 					{games.map((game) => (
 						<li key={game.id}>
 							<Card game={game} />
