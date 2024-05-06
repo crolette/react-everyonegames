@@ -8,7 +8,7 @@ import Filters from '../components/Filters/Filters';
 export const GameContext = createContext();
 
 export default function App() {
-	const [sort, setSort] = useState('');
+	const [sort, setSort] = useState('-rating');
 	const [filter, setFilter] = useState({ type: '', id: 0, name: '' });
 	const [gameList, setGameList] = useState('');
 	const [activeSort, setActiveSort] = useState('');
@@ -16,18 +16,28 @@ export default function App() {
 	const list = 'genres';
 
 	const handleSort = (e) => {
-		activeSort == ''
-			? null
-			: activeSort.classList.contains('active')
-			? activeSort.classList.remove('active')
-			: activeSort.classList.remove('active');
-		e.target.classList.add('active');
-		setSort(e.target.value);
-		setActiveSort(e.target);
+		if (e.target.classList.contains('active')) {
+			activeSort.classList.remove('active');
+			setSort('');
+			setActiveSort('');
+		} else {
+			activeSort == ''
+				? null
+				: activeSort.classList.contains('active')
+				? activeSort.classList.remove('active')
+				: activeSort.classList.remove('active');
+			e.target.classList.add('active');
+			setSort(e.target.value);
+			setActiveSort(e.target);
+		}
 	};
 
 	const handleFilter = (e) => {
-		if (e.target.parentElement.getAttribute('data-filter-type') == 'delete') {
+		if (
+			e.target.parentElement.getAttribute('data-filter-type') == 'delete' ||
+			e.target.classList.contains('active')
+		) {
+			setActiveFilter('');
 			activeFilter.classList.remove('active');
 			setFilter({
 				...filter,

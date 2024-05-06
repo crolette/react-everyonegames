@@ -34,14 +34,6 @@ export default function Filters() {
 		<>
 			<div className='filters'>
 				<h3>Platform</h3>
-				<details>
-					<summary>Platforms</summary>
-					<ul>
-						<li>Test</li>
-						<li>Test</li>
-						<li>Test</li>
-					</ul>
-				</details>
 				<ul className='filters__platforms'>
 					{platforms.map((platform) => (
 						<li

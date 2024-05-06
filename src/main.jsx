@@ -5,6 +5,7 @@ import App from './pages/App';
 import Game from './pages/Game';
 import ErrorPage from './pages/ErrorPage.jsx';
 import './index.scss';
+import './components/GamesList/utils/dateSearch.js'
 import BestOf from './components/GamesList/BestOf.jsx';
 import GamesList from './components/GamesList/GamesList.jsx';
 import NewReleases from './components/GamesList/NewReleases.jsx';

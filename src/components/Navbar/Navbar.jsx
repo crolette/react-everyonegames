@@ -44,7 +44,7 @@ export default function Navbar() {
 						</li>
 						<li>
 							<NavLink
-								to="/next-releases'"
+								to="/next-releases"
 								className={({ isActive }) => (isActive ? 'active' : '')}
 							>
 								<IoIosHourglass />
