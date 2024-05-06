@@ -12,12 +12,17 @@ const [sort, setSort] = useState('')
 		setSort(e.target.value)
 	};
 
+	const handleFilter = (e) => {
+		console.log("handleFilter")
+		console.log(e)
+	}
+
 	return (
 		<>
 			<div className="container news">
 				<Navbar />
 				<Sorting handleSort={handleSort} />
-				<Filters />
+				<Filters handleFilter={handleFilter} />
 				<Search />
 				<Outlet context={[sort]} />
 			</div>
