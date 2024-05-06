@@ -1,97 +1,79 @@
-import { useState } from 'react';
-import platformPC from '../../../assets/images/platform_pc.svg';
+import { useContext, useState } from 'react';
 
-import {
-	FaWindows,
-	FaPlaystation,
-	FaApple,
-	FaAndroid,
-	FaLinux,
-	FaXbox,
-} from 'react-icons/fa';
-
-import {
-	SiNintendo,
-	SiSega,
-	SiAtari,
-	SiCommodore,
-	SiIos,
-} from 'react-icons/si';
+import { useOutletContext } from 'react-router-dom';
+import PlatformsLogo from './PlatformsLogo';
+import { GameContext } from '../../../pages/App';
+import crypto from 'crypto';
 
 export default function Card({ game }) {
 	const [suggestionCount, setSuggestionCount] = useState(
 		game.suggestions_count
 	);
+	const { handleGameList } = useContext(GameContext);
 
-	const handleClickSuggestion = (e) => {
+	const handleClickSuggestion = () => {
 		setSuggestionCount(suggestionCount + 1);
 	};
+	
 
-	const handlePlatformLogo = (platformName) => {
-		return platformName == 'PC' ? (
-			<FaWindows />
-		) : platformName == 'PlayStation' ? (
-			<FaPlaystation />
-		) : platformName == 'Xbox' ? (
-			<FaXbox />
-		) : platformName == 'Linux' ? (
-			<FaLinux />
-		) : platformName == 'Nintendo' ? (
-			<SiNintendo />
-		) : platformName == 'Atari' ? (
-			<SiAtari />
-		) : platformName == 'Sega' ? (
-			<SiSega />
-		) : platformName == 'iOS' ? (
-			<SiIos />
-		) : platformName == 'Commodore' ? (
-			<SiCommodore />
-		) : platformName == 'Apple' ? (
-			<FaApple />
-		) : platformName == 'Android' ? (
-			<FaAndroid />
-		) : null;
-	};
 
 	return (
 		<>
-			<div className="card">
-				<div className="card__top">
+			<div className='card'>
+				<div className='card__top'>
 					<a href={`/game/${game.id}`}>
 						<img
-							className="card__image"
+							className='card__image'
 							src={game.background_image}
 							alt={`Screenshot ${game.name}`}
 						/>
 					</a>
-					<div className="card__platforms" >
-						{game.parent_platforms.map((platform) =>
-							handlePlatformLogo(platform.platform.name)
-						)}
-					</div>
+						<ul className='card__platforms'>
+							{game.parent_platforms.map((platform) => (
+								<li data-game-list='platform' key={platform.platform.id}>
+									<a
+										
+										key={platform.platform.id}
+										onClick={handleGameList}
+										href={`/games/${'parent_platforms'}/${
+											platform.platform.id
+										}/${platform.platform.slug}`}
+									>
+										<PlatformsLogo platform={platform.platform.name} />
+									</a>
+								</li>
+							))}
+						</ul>
 				</div>
-				<div className="card__bottom">
-					<div className="card__title">
+				<div className='card__bottom'>
+					<div className='card__title'>
 						<a href={`/game/${game.id}`}>
 							<h2>{game.name}</h2>
 						</a>
 						<button
-							className="card__suggestions"
+							className='card__suggestions'
 							onClick={handleClickSuggestion}
 						>
 							<span>{suggestionCount}</span>
-							<span className="material-symbols-outlined">add_circle</span>
+							<span className='material-symbols-outlined'>add_circle</span>
 						</button>
 					</div>
-					<div className="card__details">
-						<div className="card__tags">
+					<div className='card__details'>
+						<ul className='card__tags'>
 							{game.genres.map((genre) => (
-								<a href={`/games/${genre.id}/${genre.slug}`} className="card__tag">
-									{genre.name}
-								</a>
+								<li data-game-list='genres' key={genre.id}>
+									<a
+										key={genre.id}
+										className='card__tag'
+										href={`/games/${'genres'}/${genre.id}/${genre.slug}`}
+										onClick={handleGameList}
+									>
+										{genre.name}
+									</a>
+								</li>
 							))}
-						</div>
-						<div className="card__rating">
+						</ul>
+						<div className='card__rating'>
 							<p>{game.rating}</p>
 						</div>
 					</div>

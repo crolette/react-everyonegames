@@ -9,7 +9,7 @@ body {
 }
 
 #root {
-	margin-top: 40px;;
+	margin-top: 40px;
 }
 
 .container {
@@ -18,9 +18,10 @@ body {
 	margin: 0 auto;
 	display: grid;
 	gap: 40px;
+	align-items: start;
+	grid-auto-rows: min-content min-content 1fr;
+	grid-auto-columns: min-content min-content 1fr;
 }
-
-
 
 // @media (prefers-color-scheme: light) {
 // 	:root {

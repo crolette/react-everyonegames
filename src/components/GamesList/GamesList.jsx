@@ -4,21 +4,21 @@ import Card from './Card/Card';
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 
-export default function GamesList() {
+export default function GamesList({handleFilter}) {
 	const [games, setGames] = useState();
 	const [pageNumber, setpageNumber] = useState(1);
-	const [sort] = useOutletContext();
+	const [sort, filter] = useOutletContext();
 
 	const [isLoading, setIsLoading] = useState(true);
 
-
+let url = `https://api.rawg.io/api/games?key=${API_KEY}&dates=2024-04-01,2024-04-24&ordering=${sort}&${filter.type}=${filter.id}`;
 
 	useEffect(() => {
-		console.log('useeffect')
+		console.log(url)
 		const fetchData = async () => {
 			try {
 				const response = await fetch(
-					`https://api.rawg.io/api/games?key=${API_KEY}&dates=2024-04-01,2024-04-24&ordering=${sort}`
+					url
 					
 				);
 				const datas = await response.json();
@@ -34,10 +34,10 @@ export default function GamesList() {
 		};
 
 		fetchData();
-	}, [sort]);
+	}, [sort, filter]);
 
 	if (isLoading) {
-		return <div>Loading...</div>;
+		return <h1>Loading...</h1>;
 	}
 
 	const handleNextPage = (games) => {
@@ -51,9 +51,9 @@ export default function GamesList() {
 
 	return (
 		<>
-			<div className="games">
-				<h1>New & Trending</h1>
-				<ul className="games__list">
+			<div className='games'>
+				<h1>New & Trending {filter.name ? ' - ' + filter.name : ''}</h1>
+				<ul className='games__list'>
 					{games.map((game) => (
 						<li key={game.id}>
 							<Card game={game} />
