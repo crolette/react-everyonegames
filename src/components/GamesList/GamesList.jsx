@@ -17,10 +17,7 @@ let url = `https://api.rawg.io/api/games?key=${API_KEY}&dates=2024-04-01,2024-04
 		console.log(url)
 		const fetchData = async () => {
 			try {
-				const response = await fetch(
-					url
-					
-				);
+				const response = await fetch(url);
 				const datas = await response.json();
 				console.log(datas)
 				// setNextPage(datas.next)
