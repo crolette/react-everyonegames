@@ -14,41 +14,45 @@ import GamesByGenre from "./components/GamesList/GamesByGenre.jsx";
 import SearchPage from "./components/Search/SearchPage.jsx";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "",
-        element: <GamesList />,
-      },
-      {
-        path: "/best-of",
-        element: <BestOf />,
-      },
-      {
-        path: "/new-releases",
-        element: <NewReleases />,
-      },
-      {
-        path: "/next-releases",
-        element: <NextReleases />,
-      },
-      {
-        path: "/games/:genreId/:genreSlug",
-        element: <GamesByGenre />,
-      },
-      {
-        path: "/search-page",
-        element: <SearchPage />,
-      },
-    ],
-  },
-  {
-    path: "/game/:gameId",
-    element: <Game />,
-  },
+	{
+		path: '/',
+		element: <App />,
+		errorElement: <ErrorPage />,
+		children: [
+			{
+				path: '',
+				element: <GamesList />,
+			},
+			{
+				path: '/best-of',
+				element: <BestOf />,
+			},
+			{
+				path: '/new-releases',
+				element: <NewReleases />,
+			},
+			{
+				path: '/next-releases',
+				element: <NextReleases />,
+			},
+			{
+				path: '/games/:type/:filterId/:slug',
+				element: <GamesByGenre />,
+			},
+			{
+				path: '/games/platform/:filterId/:slug',
+				element: <GamesByGenre />,
+			},
+			{
+				path: '/search-page',
+				element: <SearchPage />,
+			},
+		],
+	},
+	{
+		path: '/game/:gameId',
+		element: <Game />,
+	},
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

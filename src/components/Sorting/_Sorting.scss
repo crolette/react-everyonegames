@@ -4,6 +4,10 @@
     align-items: center;
 	gap: 16px;
 
+	h3 {
+		width: 100%;
+	}
+
 	& .sort__type {
 		display: flex;
         align-items: center;
