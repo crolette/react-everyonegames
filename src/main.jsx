@@ -5,7 +5,7 @@ import App from './pages/App';
 import Game from './pages/Game';
 import ErrorPage from './pages/ErrorPage.jsx';
 import './index.scss';
-import './components/GamesList/utils/dateSearch.js'
+import './components/GamesList/utils/dateSearch.js';
 import GamesList from './components/GamesList/GamesList.jsx';
 import GamePage from './components/Game/GamePage';
 import GamesByType from './components/GamesList/GamesByType.jsx';
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
 				element: <GamesByType />,
 			},
 			{
-				path: '/search-page',
+				path: '/search/:searchGame',
 				element: <SearchPage />,
 			},
 		],
