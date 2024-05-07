@@ -1,3 +1,4 @@
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -13,8 +14,13 @@ import NextReleases from "./components/GamesList/NextReleases.jsx";
 import GamePage from "./components/Game/GamePage";
 import GamesByGenre from "./components/GamesList/GamesByGenre.jsx";
 import SearchPage from "./components/Search/SearchPage.jsx";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
+
   {
     path: "/",
     element: <App />,
