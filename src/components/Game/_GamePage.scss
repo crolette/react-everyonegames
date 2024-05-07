@@ -1,4 +1,38 @@
-.game {
+.game__details {
+    display: grid;
     grid-area: game;
-    background-color: red;
+    grid-template-areas: 
+    'header header'
+    'pictures info'
+    'about about'
+    ;
+    gap: 4rem;
+}
+
+.game__header {
+    grid-area: header;
+
+    .header__subtitles {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.game__pictures {
+    grid-area: pictures;
+
+    img {
+        width: 100%;
+    }
+}
+
+.game__info {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.game__about {
+    grid-area: about;
 }
