@@ -1,26 +1,27 @@
 import { useCallback, useRef } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';
 import Card from './Card/Card';
-import {
-	dateSearch,
-
-} from './utils/dateSearch';
 import { useInfiniteQuery } from '@tanstack/react-query';
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-export default function GamesList() {
-	const { type } = useParams();
+export default function GamesByType() {
+	const { filterId, slug, type } = useParams();
 	const [sort, filter] = useOutletContext();
 
+	// const url = `https://api.rawg.io/api/games?key=${API_KEY}&${type}=${filterId}&ordering=${sort}&${filter.type}=${filter.id}`;
+
 	const fetchGames = async ({ pageParam, sort, filter, type }) => {
-		const searchDate = await dateSearch(type);
 		const response = await fetch(
-			`https://api.rawg.io/api/games?key=${API_KEY}&dates=${searchDate}&ordering=${sort}&${filter.type}=${filter.id}&page=${pageParam}`
+			`https://api.rawg.io/api/games?key=${API_KEY}&${type}=${filterId}&ordering=${sort}&${filter.type}=${filter.id}&page=${pageParam}`
 		);
 
 		const datas = await response.json();
 		console.log(datas);
 		return datas;
+	};
+
+	const pageTitle = () => {
+		return slug.charAt(0).toUpperCase() + slug.slice(1).split('-').join(' ');
 	};
 
 	const {
@@ -65,8 +66,7 @@ export default function GamesList() {
 		<>
 			<div className='games'>
 				<h1>
-					{type ? type : 'New & Trending'}{' '}
-					{filter.name ? ' - ' + filter.name : ''}
+					{pageTitle()} {filter.name ? ' - ' + filter.name : ''}
 				</h1>
 				<ul className='games__list'>
 					{data.pages.map((games) =>

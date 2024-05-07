@@ -6,12 +6,9 @@ import Game from './pages/Game';
 import ErrorPage from './pages/ErrorPage.jsx';
 import './index.scss';
 import './components/GamesList/utils/dateSearch.js'
-import BestOf from './components/GamesList/BestOf.jsx';
 import GamesList from './components/GamesList/GamesList.jsx';
-import NewReleases from './components/GamesList/NewReleases.jsx';
-import NextReleases from './components/GamesList/NextReleases.jsx';
 import GamePage from './components/Game/GamePage';
-import GamesByGenre from './components/GamesList/GamesByGenre.jsx';
+import GamesByType from './components/GamesList/GamesByType.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import SearchPage from './components/Search/SearchPage.jsx';
 
@@ -31,17 +28,10 @@ const router = createBrowserRouter([
 				path: '/:type',
 				element: <GamesList />,
 			},
-			{
-				path: '/new-releases',
-				element: <NewReleases />,
-			},
-			{
-				path: '/next-releases',
-				element: <NextReleases />,
-			},
+
 			{
 				path: '/games/:type/:filterId/:slug',
-				element: <GamesByGenre />,
+				element: <GamesByType />,
 			},
 			{
 				path: '/search-page',
