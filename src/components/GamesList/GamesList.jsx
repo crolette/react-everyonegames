@@ -23,6 +23,11 @@ export default function GamesList() {
 		return datas;
 	};
 
+
+	const pageTitle = () => {
+		return type.charAt(0).toUpperCase() + type.slice(1).split('-').join(' ');
+	};
+
 	const {
 		data,
 		isError,
@@ -65,7 +70,7 @@ export default function GamesList() {
 		<>
 			<div className='games'>
 				<h1>
-					{type ? type : 'New & Trending'}{' '}
+					{type ? pageTitle() : 'New & Trending'}{' '}
 					{filter.name ? ' - ' + filter.name : ''}
 				</h1>
 				<ul className='games__list'>
