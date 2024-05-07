@@ -26,6 +26,9 @@ export default function Search() {
       }
       const data = await response.json();
       console.log(data);
+
+      const searchGamesUrl = `https://api.rawg.io/api/games?search=${searchQuery}&key=${API_KEY}`;
+      window.open(searchGamesUrl);
     } catch (error) {
       console.error("Error searching for games:", error);
     }

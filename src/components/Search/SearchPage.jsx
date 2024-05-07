@@ -14,12 +14,11 @@ export default function SearchPage() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://api.rawg.io/api/games?key=${API_KEY}&search="borderlands"`,
+          `https://api.rawg.io/api/games?key=${API_KEY}`
         );
         const datas = await response.json();
         console.log(datas);
         setGames(datas.results);
-        // setNextPage(datas)
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -43,13 +42,13 @@ export default function SearchPage() {
     <>
       <div className="games">
         <h1>{genreId}</h1>
-        {/* <ul className="games__list">
+        <ul className="games__list">
           {games.map((game) => (
             <li key={game.id}>
               <Card game={game} />
             </li>
           ))}
-        </ul> */}
+        </ul>
       </div>
     </>
   );
