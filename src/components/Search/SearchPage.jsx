@@ -29,7 +29,7 @@ export default function SearchPage() {
     };
 
     fetchData();
-  }, []);
+  }, [searchGame]);
 
   if (isLoading) {
     return <div>Loading...</div>;
