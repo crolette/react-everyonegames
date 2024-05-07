@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { GameContext } from "../../pages/App";
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-export default function Search({ handleSearch }) {
+export default function Search({  }) {
   const [searchQuery, setSearchQuery] = useState("");
+
+const { handleSearch } = useContext(GameContext);
 
   function handleChange(event) {
     const query = event.target.value;

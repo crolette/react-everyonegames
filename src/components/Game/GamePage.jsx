@@ -349,7 +349,6 @@ export default function GamePage() {
 	// 	console.log(data);
 	// }
 
-
 	return (
 		<>
 			<div className='game__details'>
@@ -363,7 +362,15 @@ export default function GamePage() {
 					</div>
 				</section>
 				<section className='game__pictures'>
-					<img src={data.background_image} alt='' />
+					<div className='picture__main'>
+						<img src={data.background_image} alt='' />
+					</div>
+					<div className='picture__secondary'>
+						<img src={data.background_image} alt='' />
+						<img src={data.background_image} alt='' />
+						<img src={data.background_image} alt='' />
+						<img src={data.background_image} alt='' />
+					</div>
 				</section>
 
 				<section className='game__about'>
@@ -374,25 +381,30 @@ export default function GamePage() {
 					<div className='game__info--left'>
 						<div className='info__details'>
 							<h3>Platforms</h3>
-							{data.platforms.map((platform) => platform.platform.name)}
+							<p>
+								{data.platforms.map(
+									(platform, i) => `${platform.platform.name}${i === data.platforms.length - 1 ? '' : ', '} `
+								)}
+							</p>
+						</div>
+						<div className='info__details'>
+							<h3>Publishers</h3>
+							<p>{data.publishers.map(
+								(publisher, i) => `${publisher.name}${i == data.publishers.length - 1 ? '' : ', '}`)}</p>
 						</div>
 						<div className='info__details'>
 							<h3>Release Date</h3>
 							{data.released}
 						</div>
-						<div className='info__details'>
-							<h3>Publishers</h3>
-							{data.publishers.map((publisher) => publisher.name)}
-						</div>
 					</div>
 					<div className='game__info--right'>
 						<div className='info__details'>
 							<h3>Genre</h3>
-							{data.genres.map((genre) => genre.name)}
+							<p>{data.genres.map((genre,i) => `${genre.name}${i == data.genres.length - 1 ? '' : ', '}`)}</p>
 						</div>
 						<div className='info__details'>
 							<h3>Developers</h3>
-							{data.developers.map((developer) => developer.name)}
+							{data.developers.map((developer,i) => `${developer.name}${i == data.developers.length - 1 ? '' : ', '}`)}
 						</div>
 						<div className='info__details'>
 							<h3>App Rating</h3>
@@ -401,7 +413,7 @@ export default function GamePage() {
 					</div>
 					<div className='details__tags'>
 						<h3>Tags</h3>
-						{data.tags.map((tag) => tag.name)}
+						{data.tags.map((tag, i) => `${tag.name}${i == data.tags.length - 1 ? '' : ', '}`)}
 					</div>
 				</section>
 			</div>
