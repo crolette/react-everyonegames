@@ -12,13 +12,9 @@ export default function GamesByGenre() {
 
 	const [isLoading, setIsLoading] = useState(true);
 
-	console.log(filter);
 	const url = `https://api.rawg.io/api/games?key=${API_KEY}&${type}=${filterId}&ordering=${sort}&${filter.type}=${filter.id}`;
 
 	useEffect(() => {
-		console.log('gamelist');
-		console.log(gameList);
-		console.log(filter);
 		const fetchData = async () => {
 			try {
 				const response = await fetch(url);
@@ -44,10 +40,6 @@ export default function GamesByGenre() {
 		);
 	}
 
-	function handleNextPage(games) {
-		console.log('handlenextpage');
-		setNextPage(games.next);
-	}
 
 	return (
 		<>

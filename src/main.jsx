@@ -12,7 +12,10 @@ import NewReleases from './components/GamesList/NewReleases.jsx';
 import NextReleases from './components/GamesList/NextReleases.jsx';
 import GamePage from './components/Game/GamePage';
 import GamesByGenre from './components/GamesList/GamesByGenre.jsx';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import SearchPage from './components/Search/SearchPage.jsx';
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
 	{
@@ -25,8 +28,8 @@ const router = createBrowserRouter([
 				element: <GamesList />,
 			},
 			{
-				path: '/best-of',
-				element: <BestOf />,
+				path: '/:type',
+				element: <GamesList />,
 			},
 			{
 				path: '/new-releases',
@@ -54,6 +57,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<QueryClientProvider client={queryClient}>
+			<RouterProvider router={router} />
+		</QueryClientProvider>
 	</React.StrictMode>
 );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import Card from './Card/Card';
-import { lastThreeMonthsCalculation, lastYearCalculation } from './utils/dateSearch';
+import { lastYearCalculation } from './utils/dateSearch';
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 export default function BestOf() {
@@ -37,14 +37,6 @@ export default function BestOf() {
 		return <h1>Loading...</h1>;
 	}
 
-	const handleNextPage = (games) => {
-		console.log('handlenextpage');
-		setNextPage(games.next);
-	};
-
-	const handleInfiniteScroll = () => {
-		console.log('handleInfiniteScroll');
-	};
 
 	return (
 		<>
