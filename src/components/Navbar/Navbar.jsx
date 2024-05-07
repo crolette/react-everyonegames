@@ -28,7 +28,7 @@ export default function Navbar() {
 						</li>
 						<li>
 							<NavLink
-								to='/best-of'
+							  to={`/${'best-of'}`}
 								className={({ isActive }) => (isActive ? 'active' : '')}
 							>
 								<FaStar />
@@ -36,7 +36,7 @@ export default function Navbar() {
 						</li>
 						<li>
 							<NavLink
-								to='/new-releases'
+								to={`/${'new-releases'}`}
 								className={({ isActive }) => (isActive ? 'active' : '')}
 							>
 								<MdFiberNew />
@@ -44,7 +44,7 @@ export default function Navbar() {
 						</li>
 						<li>
 							<NavLink
-								to="/next-releases"
+								to={`/${'next-releases'}`}
 								className={({ isActive }) => (isActive ? 'active' : '')}
 							>
 								<IoIosHourglass />
