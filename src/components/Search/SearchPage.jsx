@@ -4,17 +4,19 @@ import Card from "../GamesList/Card/Card";
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 export default function SearchPage() {
-  const { genreId, genreSlug } = useParams();
+  const { searchGame } = useParams();
   const [games, setGames] = useState();
   const [pageNumber, setpageNumber] = useState(1);
 
   const [isLoading, setIsLoading] = useState(true);
 
+  console.log(searchGame);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://api.rawg.io/api/games?key=${API_KEY}`
+          `https://api.rawg.io/api/games?search=${searchGame}&key=${API_KEY}`
         );
         const datas = await response.json();
         console.log(datas);
@@ -41,7 +43,7 @@ export default function SearchPage() {
   return (
     <>
       <div className="games">
-        <h1>{genreId}</h1>
+        <h1>{searchGame}</h1>
         <ul className="games__list">
           {games.map((game) => (
             <li key={game.id}>
