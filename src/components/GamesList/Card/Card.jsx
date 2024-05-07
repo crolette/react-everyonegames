@@ -9,7 +9,7 @@ export default function Card({ game }) {
 	const [suggestionCount, setSuggestionCount] = useState(
 		game.suggestions_count
 	);
-	const { handleGameList } = useContext(GameContext);
+	// const { handleGameList } = useContext(GameContext);
 
 	const handleClickSuggestion = () => {
 		setSuggestionCount(suggestionCount + 1);
@@ -34,7 +34,7 @@ export default function Card({ game }) {
 									<a
 										
 										key={platform.platform.id}
-										onClick={handleGameList}
+										// onClick={handleGameList}
 										href={`/games/${'parent_platforms'}/${
 											platform.platform.id
 										}/${platform.platform.slug}`}
@@ -66,7 +66,7 @@ export default function Card({ game }) {
 										key={genre.id}
 										className='card__tag'
 										href={`/games/${'genres'}/${genre.id}/${genre.slug}`}
-										onClick={handleGameList}
+										// onClick={handleGameList}
 									>
 										{genre.name}
 									</a>

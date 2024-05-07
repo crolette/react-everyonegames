@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { Outlet, redirect, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Search from "../components/Search/Search";
 import Sorting from "../components/Sorting/Sorting";
@@ -65,38 +65,24 @@ export default function App() {
 
   let navigate = useNavigate();
 
-  function handleSearch(e) {
+  const handleSearch= (e) => {
     console.log(e.target);
     console.log("handleEvent");
     const searchGame = e.target.value;
     console.log(searchGame);
     navigate(`/search/${searchGame}`);
-
-    // try {
-    //   const response = await fetch(
-    //     `https://api.rawg.io/api/games?search=${searchQuery}&key=${API_KEY}`
-    //   );
-    //   if (!response.ok) {
-    //     throw new Error("Network response was not ok");
-    //   }
-    //   const data = await response.json();
-    //   console.log(data);
-
-    //   const searchGamesUrl = `https://api.rawg.io/api/games?search=${searchQuery}&key=${API_KEY}`;
-    //   window.open(searchGamesUrl);
-    // } catch (error) {
-    //   console.error("Error searching for games:", error);
-    // }
   }
+
+  
 
   return (
     <>
       <div className="container news">
         <Navbar />
-        <GameContext.Provider value={{ handleFilter, handleGameList }}>
-          <Sorting handleSort={handleSort} />
-          <Filters handleFilter={handleFilter} />
-          <Search handleSearch={handleSearch} />
+        <GameContext.Provider value={{ handleFilter, handleGameList, handleSort, handleSearch }}>
+          <Sorting  />
+          <Filters  />
+          <Search  />
           <Outlet context={[sort, filter, gameList, list]} />
         </GameContext.Provider>
       </div>
