@@ -1,27 +1,25 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { FaSearch } from "react-icons/fa";
 import { GameContext } from "../../pages/App";
-const API_KEY = import.meta.env.VITE_API_KEY;
 
 export default function Search({  }) {
-  const [searchQuery, setSearchQuery] = useState("");
 
 const { handleSearch } = useContext(GameContext);
 
-  function handleChange(event) {
-    const query = event.target.value;
-    setSearchQuery(query);
+  function handleChange(e) {
+    e.target.value.length >= 3 ? handleSearch(e.target) : null
   }
 
   function handleKeyDown(event) {
     if (event.key === "Enter") {
-      handleSearch(event);
+      handleSearch(event.target);
+      event.target.value = '';
     }
   }
 
   function handleClick(event) {
-    console.log(event);
     handleSearch(event.target.nextElementSibling);
+    event.target.nextElementSibling.value = '';
   }
 
   return (
