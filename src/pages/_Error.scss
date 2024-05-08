@@ -1,8 +1,10 @@
-.container.game {
+.container.error {
+    grid-area: error;
+}
+
+.container.error {
 	grid-template-areas:
-		'navbar game'
-		'navbar game'
-		'. game';
+		'navbar error';
 		grid-auto-rows:auto;
 		grid-auto-columns: min-content 1fr;
 }

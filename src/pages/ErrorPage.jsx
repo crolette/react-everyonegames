@@ -11,7 +11,7 @@ export default function ErrorPage() {
 
 	return (
 		<>
-			<div className='container'>
+			<div className='container error'>
 				<Navbar />
 					
 					<div className='error'>
