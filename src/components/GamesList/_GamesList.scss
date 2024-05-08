@@ -5,6 +5,7 @@
 
 	.games__list {
 		display: flex;
+        justify-content: space-around;
 		flex-wrap: wrap;
 		gap: 40px;
 		margin-top: 40px;
@@ -12,8 +13,10 @@
 }
 
 @media (width <= 768px) {
+  
 	.games {
         // position: relative;
+        overflow-y: hidden;
 
         h1 {
             position: sticky;
@@ -23,7 +26,7 @@
 
 		.games__list {
 			flex-wrap: unset;
-            overflow-y: hidden;
+            margin-top: 20px;
 		}
 	}
 }

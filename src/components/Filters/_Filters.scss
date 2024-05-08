@@ -25,3 +25,14 @@
 		}
 	}
 }
+
+@media (width <= 768px) {
+	.filters {
+		.filters__platforms {
+			margin-top: 2rem;
+			position: absolute;
+			background-color: var(--bg-buttons);
+			z-index: 9999;
+		}
+	}
+}

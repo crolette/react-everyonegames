@@ -1,6 +1,15 @@
 .container.news {
 	grid-template-areas:
-		'navbar search search'
-		'navbar sort filters'
-		'navbar main main';
+		'navbar search'
+		'navbar sortbar'
+		'navbar main';
+}
+
+@media (width <= 768px) {
+	.container.news {
+		grid-template-areas:
+			'search '
+			'sortbar'
+			'main';
+	}
 }

@@ -27,6 +27,7 @@ export default function SearchPage() {
         setIsLoading(false);
       }
     };
+    
 
     fetchData();
   }, [searchGame]);

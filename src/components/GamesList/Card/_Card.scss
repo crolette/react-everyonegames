@@ -1,5 +1,5 @@
 .card {
-    width: 300px;
+    width: 280px;
     min-height: 300px;
     border-radius: 8px;
     box-shadow: 0 0 10px 2px hsla(237,80%,75%,0.25);
@@ -93,5 +93,34 @@
             }
         }
     }
+}
 
+@media (width <= 768px) {
+	.card {
+        position: relative;
+        min-height: unset;
+         .card__top {
+        
+
+        .card__platforms {
+            z-index: 999;
+        }
+    }
+
+        .card__bottom {
+            position: absolute;
+            background: var(--bg-game-details);
+            height: 100%;
+            width: 100%;
+            top:0;
+
+            .card__details {
+            display: flex;
+           flex-direction: column;
+           gap: 1rem;
+            align-items: flex-start;
+            width: 100%;
+        }
+    }
+}
 }

@@ -32,10 +32,8 @@ export default function Filters() {
 
 	return (
 		<>
-			<details className='filters'>
-				<summary>
-					<h3>Platform</h3>
-				</summary>
+			<div className='filters'>
+				<h3>Platform</h3>
 				<ul className='filters__platforms'>
 					{platforms.map((platform) => (
 						<li
@@ -59,7 +57,7 @@ export default function Filters() {
 						</button>
 					</li>
 				</ul>
-			</details>
+			</div>
 		</>
 	);
 }

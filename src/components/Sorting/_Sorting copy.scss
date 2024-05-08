@@ -1,27 +1,19 @@
-details {
-	color: white;
-	position: relative;
-	font-size: 2rem;
-	cursor: pointer;
 
-	summary {
-		width: 100%;
-	}
-}
-
-.sortbar {
-	grid-area: sortbar;
+.sort {
+	grid-area: sort;
 	display: flex;
-	gap: 5rem;
-}
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
 
-.sort__types {
-	
+	h3 {
+		align-self: flex-start;
+	}
+
+
+	.sort__types {
 		display: flex;
 		gap: 16px;
-		background: var(--bg-body);
-		padding: 1rem;
-		z-index: 9999;
 
 		& .sort__type {
 			display: flex;
@@ -40,8 +32,7 @@ details {
 			}
 		}
 	}
-
-	
+}
 
 .filter__button {
 
@@ -58,8 +49,7 @@ details {
 		flex-wrap: wrap;
 
 		.sort__types {
-			margin-top: 2rem;
-			position: absolute;
+			flex-wrap: wrap;
 		gap: 8px;
 
 		& .sort__type {
