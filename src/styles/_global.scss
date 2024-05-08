@@ -7,6 +7,7 @@ body {
 	min-width: 320px;
 	min-height: 100vh;
 	transition: 0.5s;
+	position: relative;
 }
 
 #root {
@@ -14,10 +15,7 @@ body {
 }
 
 .container {
-	width: 100%;
 	width: min(100vw, 1440px);
-	// min-width: 100vw;
-	// max-width: 1440px;
 	margin: 0 auto;
 	padding: 0 32px;
 	display: grid;
@@ -27,3 +25,12 @@ body {
 	grid-auto-columns: min-content min-content 1fr;
 }
 
+@media (width <=768px) {
+	body {
+		height: 100vh;
+	}
+	.container {
+		padding: 0 16px;
+		gap: 0;
+	}
+}
