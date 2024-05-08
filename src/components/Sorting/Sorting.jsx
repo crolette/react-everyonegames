@@ -15,15 +15,7 @@ export default function Sorting({  }) {
 					<SortingButton value={'rating'} title={'Rating'} />
 				</div>
 			</details>
-			{/* <div className='sort'>
-				<h3>Sort by</h3>
-				<div className='sort__types'>
-					<SortingButton value={'released'} title={'Release date'} />
-					<SortingButton value={'added'} title={'Date added'} />
-					<SortingButton value={'name'} title={'Name'} />
-					<SortingButton value={'rating'} title={'Rating'} />
-				</div>
-			</div> */}
+		
 		</>
 	);
 }
