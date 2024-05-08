@@ -1,13 +1,29 @@
 @import './Card/Card';
 
 .games {
-    grid-area: main;
-    
-    .games__list {
-        display: flex;
-        flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 40px;
-    }
+	grid-area: main;
 
+	.games__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 40px;
+		margin-top: 40px;
+	}
+}
+
+@media (width <= 768px) {
+	.games {
+        // position: relative;
+
+        h1 {
+            position: sticky;
+            top: 0;
+            left: 0;
+        }
+
+		.games__list {
+			flex-wrap: unset;
+            overflow-y: hidden;
+		}
+	}
 }

@@ -66,10 +66,7 @@ export default function App() {
   let navigate = useNavigate();
 
   const handleSearch= (e) => {
-    console.log(e.target);
-    console.log("handleEvent");
-    const searchGame = e.target.value;
-    console.log(searchGame);
+    const searchGame = e.value;
     navigate(`/search/${searchGame}`);
   }
 

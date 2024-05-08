@@ -16,6 +16,7 @@ export default function GamesList() {
 		const searchDate = await dateSearch(type);
 		const response = await fetch(
 			`https://api.rawg.io/api/games?key=${API_KEY}&dates=${searchDate}&ordering=${sort}&${filter.type}=${filter.id}&page=${pageParam}`
+			
 		);
 
 		const datas = await response.json();
