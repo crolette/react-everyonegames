@@ -40,32 +40,39 @@
 
 @media only screen and (max-width: 768px) {
   .navbar {
+    flex-direction: row;
     justify-content: center;
     position: fixed;
     height: 15vh;
-    width: 50vw;
+    width: 250px;
     top: 80vh;
-    left: 25vw;
+    // left: 30vw;
     align-items: center;
     z-index: 9999;
+    
+    
+
 
     &__icons {
       flex-direction: row;
-      margin-top: 63px;
+      margin-top: 0px;
+      margin-right: 30px;
     }
 
     button {
-      bottom: 100px;
+    margin-bottom: 0;
+      
     }
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1200px) {
   .navbar {
+    flex-direction: row;
     justify-content: center;
     position: fixed;
     height: 10vh;
-    width: 30vw;
+    width: 350px;
     top: 80vh;
     left: 33vw;
     align-items: center;
@@ -73,11 +80,13 @@
 
     &__icons {
       flex-direction: row;
-      margin-top: 63px;
+      margin-top: 0px;
+      margin-right: 20px;
     }
 
     button {
-      bottom: 100px;
+  margin-bottom: 0;
+      
     }
   }
 }
