@@ -11,10 +11,10 @@
 
 ## Mission objectives
 
-- [ ] Consolidate your knowledges in React.
-- [ ] Respect the clients needs.
-- [ ] Be creative when the clients are vague.
-- [ ] Create a projects from scratch that is scale-able in the future.
+- [x] Consolidate your knowledges in React.
+- [x] Respect the clients needs.
+- [x] Be creative when the clients are vague.
+- [x] Create a projects from scratch that is scale-able in the future.
 
 ## Mission
 
