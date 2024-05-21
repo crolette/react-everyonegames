@@ -1,3 +1,5 @@
+[Link to the website deployed on netlify](https://everyonegames-crolweb.netlify.app/)
+
 # EveryoneGames
 
 ## Mission objectives
@@ -13,19 +15,6 @@ You're client would like to have their own **_video game_** website. A website t
 They completely trust you and think you are capable enough as a front-end developer to come up with your own touch while following the feel of the pictures.
 
 API: https://rawg.io/apidocs
-
-#### Code Quality
-
-We need you to enforce your _code quality_.
-
-That's why you will use [Prettier](https://prettier.io) to format your code, and [ESLint](https://eslint.org) to ensure your code following _good practices_.
-
-> 🧨 **WARNING:** disable ESLint **is not** an option!
-
-## The images
-
-![clipboard.png](_CaS1S3Bl-clipboard.png)
-![clipboard.png](XB3c9RFmG-clipboard.png)
 
 ## Must have
 
