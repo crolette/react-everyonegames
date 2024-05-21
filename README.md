@@ -1,14 +1,5 @@
 # EveryoneGames
 
-| Challenge Parameters | Challenge Details   |
-| :------------------- |:--------------------|
-| Repository           | `EveryoneGames`     |
-| Challenge type       | `Consolidation`             |
-| Duration             | `5 days`            |
-| Deadline             | `08/05/2023`        |
-| Deployment method    | `Netlify or Vercel` |
-| Group composition    | `Duo`              |
-
 ## Mission objectives
 
 - [x] Consolidate your knowledges in React.
