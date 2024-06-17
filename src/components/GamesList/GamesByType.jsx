@@ -16,7 +16,6 @@ export default function GamesByType() {
 		);
 
 		const datas = await response.json();
-		console.log(datas);
 		return datas;
 	};
 

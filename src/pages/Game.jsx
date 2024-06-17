@@ -11,7 +11,6 @@ export default function Game() {
 		<>
 			<div className='container game'>
 				<Navbar />
-				{/* <Search /> */}
 				<GamePage />
 			</div>
 		</>

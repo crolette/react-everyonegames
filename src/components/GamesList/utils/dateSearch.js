@@ -36,15 +36,12 @@ const lastYearCalculation = () => {
 	return lastYear;
 };
 
-
 const dateSearch = (type) => {
-	console.log("dateSearch")
-	const today = todayCalculation()
-	let date
+	const today = todayCalculation();
+	let date;
 	if (type == 'best-of') {
 		date = lastYearCalculation();
 		return `${date},${today}`;
-		
 	} else if (type == 'next-releases') {
 		date = nextMonthCalculation();
 		return `${today},${date}`;
@@ -53,10 +50,9 @@ const dateSearch = (type) => {
 		return `${date},${today}`;
 	} else {
 		date = lastThreeMonthsCalculation();
-		return  `${date},${today}`;
+		return `${date},${today}`;
 	}
-}
-
+};
 
 export {
 	nextMonthCalculation,

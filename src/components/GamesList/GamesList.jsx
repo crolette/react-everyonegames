@@ -20,7 +20,6 @@ export default function GamesList() {
 		);
 
 		const datas = await response.json();
-		console.log(datas);
 		return datas;
 	};
 

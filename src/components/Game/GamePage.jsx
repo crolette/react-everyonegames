@@ -315,24 +315,20 @@ export default function GamePage() {
 	let { gameId } = useParams();
 
 	const fetchGame = async () => {
-		console.log('fetchgame');
 		const response = await fetch(
 			`https://api.rawg.io/api/games/${parseInt(gameId)}?key=${API_KEY}`
 		);
 		const datas = await response.json();
-		console.log(datas);
 		return datas;
 	};
 
 	const fetchScreenshots = async () => {
-		console.log('fetchscreenshot');
 		const response = await fetch(
 			`https://api.rawg.io/api/games/${parseInt(
 				gameId
 			)}/screenshots?key=${API_KEY}`
 		);
 		const datas = await response.json();
-		console.log(datas);
 		return datas;
 	};
 
@@ -351,10 +347,7 @@ export default function GamePage() {
 	}
 
 	if (isSuccess) {
-		console.log('SUCCESS');
 		const gameInfo = data;
-		console.log(gameInfo);
-		console.log(screenshots['data'].results[0]);
 		return (
 			<>
 				<div className='game__details'>

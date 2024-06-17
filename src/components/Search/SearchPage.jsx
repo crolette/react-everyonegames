@@ -8,7 +8,6 @@ export default function SearchPage() {
 	const { searchGame } = useParams();
 	const [sort, filter] = useOutletContext();
 	const [games, setGames] = useState();
-	console.log(searchGame);
 
 	const fetchGames = async ({ pageParam, searchGame, sort, filter }) => {
 		const response = await fetch(
@@ -16,7 +15,6 @@ export default function SearchPage() {
 		);
 
 		const datas = await response.json();
-		console.log(datas);
 		return datas;
   };
   
@@ -60,7 +58,6 @@ export default function SearchPage() {
 
 	return (
     <>
-      {console.log(data)}
 			<div className='games'>
 				<h1>{searchGame}</h1>
 				<ul className='games__list'>

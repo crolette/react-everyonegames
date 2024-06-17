@@ -9,14 +9,12 @@ export default function Filters() {
 	const [platforms, setPlatforms] = useState([]);
 
 	useEffect(() => {
-		console.log('useeffect filters');
 		const fetchData = async () => {
 			try {
 				const response = await fetch(
 					`https://api.rawg.io/api/platforms/lists/parents?key=${API_KEY}`
 				);
 				const datas = await response.json();
-				console.log(datas);
 				// setNextPage(datas.next)
 				setPlatforms(datas.results);
 				// setGames(datas);
