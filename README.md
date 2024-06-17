@@ -77,15 +77,4 @@ Add to the page that what you think is important for the user to see.
 
 The user still has access to the search-bar on this page to return to the homepage.
 
-## Done?
 
-Applications are never really finished. Try to come up with some extra features.
-What about comparing games?
-More categories?
-Maybe your favorite games that get saved to the local storage and if it exists, shown on a favorite page?
-
-All of these sound maybe complicated, but if you build your application correctly it should be easy to add new features.
-
-## Now Mr(s). Developer, it's up to you.
-
-![img](./catfortnite.gif)

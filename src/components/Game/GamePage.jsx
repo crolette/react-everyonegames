@@ -336,31 +336,14 @@ export default function GamePage() {
 		return datas;
 	};
 
-	// const datas = useQueries({
-	// 	queries: [
-	// 		{
-	// 			queryKey: ['game'],
-	// 			queryFn: () => fetchGame(),
-	// 		},
-	// 		{
-	// 			queryKey: ['screenshots'],
-	// 			queryFn: () => fetchScreenshots(),
-	// 		},
-	// 	],
-	// });
-
-	// const isLoading = datas.some((query) => query.status === 'loading');
-	// let isSuccess = datas.some((query) => query.status === 'success');
-	// const isError = datas.some((query) => query.status === 'error');
-
 	const { data, isLoading, isSuccess } = useQuery({
 		queryKey: ['game'],
-		queryFn: () => fetchGame(),
+		queryFn: () => fetchGame()
 	});
 
 	const screenshots = useQuery({
 		queryKey: ['screenshots'],
-		queryFn: () => fetchScreenshots(),
+		queryFn: () => fetchScreenshots()
 	});
 
 	if (isLoading) {
@@ -478,131 +461,5 @@ export default function GamePage() {
 				</div>
 			</>
 		);
-		// gameInfo = datas[0].data;
-		// screenshots = datas[1].data;
-		// console.log(gameInfo);
-		// console.log(screenshots);
-		// console.log(datas);
 	}
-
-	// if (isError) {
-	// 	console.log('ERROR');
-	// 	// gameInfo = datas[0].data;
-	// 	// screenshots = datas[1].data;
-	// 	console.log(gameInfo);
-	// 	console.log(screenshots);
-	// 	return <h1>Error</h1>;
-	// 	// console.log(datas);
-	// }
-
-	return (
-		<>
-			{/* {console.log(datas)} */}
-			{/* <div className='game__details'> 
-			<section className='game__header'>
-				<h1 className='header__title'>{gameInfo.name}</h1>
-				<div className='header__subtitles'>
-					<p className='header__playtime'>
-						Average playtime: {gameInfo.playtime}h
-					</p>
-					<p className='header__rating'>Rating: {gameInfo.rating}</p>
-				</div>
-			</section>
-			<section className='game__pictures'>
-				<div className='picture__main'>
-					<img
-						src={screenshots['data'].results[0].image}
-						alt='{gameInfo.name} - screenshots gameplay'
-					/>
-				</div>
-				<div className='picture__secondary'>
-					<img
-						src={screenshots['data'].results[1].image}
-						alt='{gameInfo.name} - screenshots gameplay'
-					/>
-					<img
-						src={screenshots['data'].results[2].image}
-						alt='{gameInfo.name} - screenshots gameplay'
-					/>
-					<img
-						src={screenshots['data'].results[3].image}
-						alt='{gameInfo.name} - screenshots gameplay'
-					/>
-					<img
-						src={screenshots['data'].results[4].image}
-						alt='{gameInfo.name} - screenshots gameplay'
-					/>
-				</div>
-			</section>
-
-			<section className='game__about'>
-				<h2>About</h2>
-				<p>{gameInfo.description_raw}</p>
-			</section>
-			<section className='game__info'>
-					<div className='game__info--left'>
-						<div className='info__details'>
-							<h3>Platforms</h3>
-							<p>
-								{gameInfo.platforms.map(
-									(platform, i) =>
-										`${platform.platform.name}${
-											i === gameInfo.platforms.length - 1 ? '' : ', '
-										} `
-								)}
-							</p>
-						</div>
-						<div className='info__details'>
-							<h3>Publishers</h3>
-							<p>
-								{gameInfo.publishers.map(
-									(publisher, i) =>
-										`${publisher.name}${
-											i == gameInfo.publishers.length - 1 ? '' : ', '
-										}`
-								)}
-							</p>
-						</div>
-						<div className='info__details'>
-							<h3>Release Date</h3>
-							{gameInfo.released}
-						</div>
-					</div>
-					<div className='game__info--right'>
-						<div className='info__details'>
-							<h3>Genre</h3>
-							<p>
-								{gameInfo.genres.map(
-									(genre, i) =>
-										`${genre.name}${
-											i == gameInfo.genres.length - 1 ? '' : ', '
-										}`
-								)}
-							</p>
-						</div>
-						<div className='info__details'>
-							<h3>Developers</h3>
-							{gameInfo.developers.map(
-								(developer, i) =>
-									`${developer.name}${
-										i == gameInfo.developers.length - 1 ? '' : ', '
-									}`
-							)}
-						</div>
-						<div className='info__details'>
-							<h3>App Rating</h3>
-							{gameInfo.esrb_rating.name}
-						</div>
-					</div>
-					<div className='details__tags'>
-						<h3>Tags</h3>
-						{gameInfo.tags.map(
-							(tag, i) =>
-								`${tag.name}${i == gameInfo.tags.length - 1 ? '' : ', '}`
-						)}
-					</div>
-				</section>
-			</div> */}
-		</>
-	);
 }
